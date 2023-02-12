@@ -40,6 +40,14 @@ app.post('/api', async (req, res) => {
     });
 
     sAnswer = `\nAI: ${response.data.choices[0].text.replace(/\n\n/g, '')}\n`;
+    nQuestion += sAnswer;
+
+    // replace answer para AI: e Human: para ficar mais bonito
+    nQuestion = nQuestion.replace(/AI:/g, 'AI: ').replace(/Human:/g, 'Human: ');
+
+    nQuestion = nQuestion.replace(/Robot:/g, '');
+    nQuestion = nQuestion.replace(/Robô:/g, '');
+    nQuestion = nQuestion.replace(/AI:  /g, 'AI: ').replace(/Human:  /g, 'Human: ');
 
     res.status(200).json({ ai: sAnswer, questions: nQuestion });
   } catch (err) {

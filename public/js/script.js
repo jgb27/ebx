@@ -6,7 +6,7 @@ let nQuestion;
 input.addEventListener('keyup', (e) => {
   
   // if press enter and alt
-  if (e.key === 'Enter' && e.altKey) {
+  if (e.key === 'Enter' && e.ctrlKey) {
     var sQuestion = `Human: ${input.value}`;
     history.innerHTML += `<p class="human">${input.value}</p>`;
     input.value = '';
